@@ -1,14 +1,11 @@
+import OrderHistory from "../components/home/OrderHistory";
+
 const HomePage = () => {
-    return (
-      <>
-        <p>
-            home
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Incidunt, mollitia!
-        </p>
-        <a href="/users">Users</a>
-      </>
-    );
-  };
-  
-  export default HomePage;
+  return (
+    <>
+      <OrderHistory />
+    </>
+  );
+};
+
+export default HomePage;
