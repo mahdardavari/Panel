@@ -1,27 +1,16 @@
-import { FC, MouseEvent, useState } from "react";
+import { FC } from "react";
 import "./styles/Button.css";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  cls?: string | null;
 }
 
-const Button: FC<Props> = ({ children, ...attributes }) => {
-  const [position, setPosition] = useState({ top: 0, left: 0 });
-
-  const handleEffect = (event: MouseEvent) => {
-    const { clientX, clientY } = event;
-    setPosition({ top: clientY, left: clientX });
-  };
-
+const Button: FC<Props> = ({ children, cls, ...attributes }) => {
   return (
     <>
-      <button className="button" onMouseEnter={handleEffect} {...attributes}>
-
-        <span className="btnTxt ">{children}</span>
-        <span
-          style={{ top: position.top, left: position.left }}
-          className="btnBg"
-        ></span>
+      <button className={`custom-btn primary ${cls}`} {...attributes}>
+        {children}
       </button>
     </>
   );

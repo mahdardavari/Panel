@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import Input from "../components/Input";
 
 const TransactionPage = () => {
@@ -8,6 +9,8 @@ const TransactionPage = () => {
         <Input name="date" label="مبلغ" />
         <Input name="date" label="دسته بندی" />
         <Input name="date" label="یادداشت" />
+        {/* TODO use https://www.npmjs.com/package/tailwind-merge  */}
+        <Button cls="mt-14">ذخیره</Button>
       </section>
     </>
   );
