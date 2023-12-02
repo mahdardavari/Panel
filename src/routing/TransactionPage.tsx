@@ -9,8 +9,10 @@ const TransactionPage = () => {
         <Input name="date" label="مبلغ" />
         <Input name="date" label="دسته بندی" />
         <Input name="date" label="یادداشت" />
-        {/* TODO use https://www.npmjs.com/package/tailwind-merge  */}
-        <Button cls="mt-14">ذخیره</Button>
+
+        <div className="w-11/12 mt-14 m-auto">
+          <Button>ذخیره</Button>
+        </div>
       </section>
     </>
   );

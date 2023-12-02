@@ -1,12 +1,9 @@
+import Table, { headers, tableData } from "../components/Table";
+
 const DepositWithdrawalPage = () => {
   return (
     <>
-      <p>
-        d
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt,
-        mollitia!
-      </p>
-      <a href="/users">Users</a>
+      <Table headers={headers} tableData={tableData} />;
     </>
   );
 };
