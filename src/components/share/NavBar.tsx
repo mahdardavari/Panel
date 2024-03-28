@@ -2,7 +2,7 @@ import { FC } from "react";
 import { PiCirclesFourFill } from "react-icons/pi";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
-import UserInfo from "./home/UserInfo";
+import UserInfo from "../home-page/UserInfo";
 
 const NavBar: FC = () => {
   const location = useLocation();

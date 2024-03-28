@@ -1,19 +1,25 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import "./index.css";
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import { buildProvidersTree } from "./components/BuildProvidersTree.tsx";
+import "./index.css";
 import router from "./routers.tsx";
 
 const queryClient = new QueryClient();
 
+export const ProvidersTree = buildProvidersTree([
+  [QueryClientProvider, { client: queryClient }],
+  // [ThemeProvider, { theme: AppTheme }],
+  [RouterProvider, { router: router }]
+]);
+
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+    <ProvidersTree >
       <ReactQueryDevtools />
-    </QueryClientProvider>
+    </ProvidersTree>
   </React.StrictMode>
 );

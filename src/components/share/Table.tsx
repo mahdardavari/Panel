@@ -36,7 +36,7 @@ const Table = ({ tableData, headers }: TableProps) => {
               {row.map((cell, cellIndex) => (
                 <td
                   key={cellIndex}
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-center"
                 >
                   {cell}
                 </td>

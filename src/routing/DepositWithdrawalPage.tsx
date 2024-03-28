@@ -1,8 +1,7 @@
-import Table, { headers, tableData } from "../components/Table";
+import Table, { headers, tableData } from "src/components/share/Table";
 import usePost from "../hooks/usePosts";
 
 const DepositWithdrawalPage = () => {
-  
   const { data, error, isLoading } = usePost(2);
 
   if (isLoading) return <p>loading ...</p>;

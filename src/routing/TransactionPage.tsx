@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import Button from "../components/Button";
-import Input from "../components/Input";
 import axios from "axios";
+import Button from "src/components/share/Button";
+import Input from "src/components/share/Input";
 
 interface Transaction {
   type: string; // better use enums //income
@@ -13,35 +13,36 @@ interface Transaction {
 
 const TransactionPage = () => {
   const queryClient = useQueryClient();
+  //TODO refactor to useMutation
 
-  const addTransaction = useMutation<Transaction,Error,Transaction>({
+  const addTransaction = useMutation<Transaction, Error, Transaction>({
     mutationFn: (transaction: Transaction) =>
       axios.post("/api/transactions/", transaction).then((res) => res.data),
     onError: (error) => error.message,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    onSuccess: (savedTransaction, newTrs) => {
+    onSuccess: (savedTransaction) => {
       console.log("x", savedTransaction);
       queryClient.setQueryData<Transaction[]>(
         ["transaction"],
-        (transaction) => [savedTransaction, ...transaction || []]
+        (transaction) => [savedTransaction, ...(transaction || [])]
       );
     },
   });
 
   return (
     <>
-    {addTransaction.error && addTransaction.error.message}
+      {addTransaction.error && addTransaction.error.message}
       <section className="px-6">
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            addTransaction.mutate({
-              amount: 100000,
-              category: "xx",
-              datetime: Date.now().toString(),
-              note: "note",
-              type: "type",
-            });
+            // addTransaction.mutate({
+            //   amount: 100000,
+            //   category: "xx",
+            //   datetime: Date.now().toString(),
+            //   note: "note",
+            //   type: "type",
+            // });
           }}
         >
           <Input name="date" label="تاریخ" />

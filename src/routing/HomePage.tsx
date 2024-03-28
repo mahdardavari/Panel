@@ -1,4 +1,4 @@
-import OrderHistory from "../components/home/OrderHistory";
+import OrderHistory from "../components/home-page/OrderHistory";
 
 const HomePage = () => {
   return (
