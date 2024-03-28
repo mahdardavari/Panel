@@ -17,7 +17,7 @@
 
 body {
   margin: 0;
-  direction: rtl;
+  /* direction: rtl; */
   box-sizing: content-box;
   font-size: 1 rem;
   min-width: 100vw;

@@ -7,19 +7,25 @@ import { buildProvidersTree } from "./components/BuildProvidersTree.tsx";
 import "./index.css";
 import router from "./routers.tsx";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 3,
+      // refetchOnWindowFocus: false,
+      // refetchOnReconnect: false,
+    },
+  },
+});
 
 export const ProvidersTree = buildProvidersTree([
   [QueryClientProvider, { client: queryClient }],
   // [ThemeProvider, { theme: AppTheme }],
-  [RouterProvider, { router: router }]
+  [RouterProvider, { router: router }],
+  [ReactQueryDevtools, { initialIsOpen: true }],
 ]);
-
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ProvidersTree >
-      <ReactQueryDevtools />
-    </ProvidersTree>
+    <ProvidersTree />
   </React.StrictMode>
 );

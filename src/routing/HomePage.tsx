@@ -1,9 +1,9 @@
-import OrderHistory from "../components/home-page/OrderHistory";
+import PostList from "src/components/share/PostList";
 
 const HomePage = () => {
   return (
     <>
-      <OrderHistory />
+      <PostList />
     </>
   );
 };

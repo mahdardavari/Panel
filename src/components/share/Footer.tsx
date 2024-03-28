@@ -6,13 +6,16 @@ const Footer = () => {
 
   return (
     <>
-      {location.pathname !== "/transaction" ? (
+    {/* TODO REFACTOR */}
+
+       {location.pathname !== "/transaction" ? (
         <div className="text-indigo-600 text-5xl absolute bottom-8 right-6">
           <Link to="/transaction">
             <BsPlusCircleFill />
           </Link>
         </div>
-      ) : null}
+      ) : null} 
+     
     </>
   );
 };
