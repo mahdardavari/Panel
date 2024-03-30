@@ -3,6 +3,7 @@ import PostList from "src/components/share/PostList";
 const HomePage = () => {
   return (
     <>
+      <h1>POST LIST </h1>
       <PostList />
     </>
   );

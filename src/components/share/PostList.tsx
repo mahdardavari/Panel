@@ -25,9 +25,9 @@ const PostList = () => {
         <option value="2">User 2</option>
       </select> */}
 
-      {data?.map(({ id, title }) => {
+      {data?.map(({ title },index) => {
         return (
-          <div className="text-gray-950 p-2 border rounded-md" key={id}>
+          <div className="text-gray-950 p-2 border rounded-md" key={index}>
             <span>{title}</span>
           </div>
         );
