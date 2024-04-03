@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Card from "src/components/crypto-currency-page/Card";
 import { CryptoResponse } from "src/components/crypto-currency-page/types";
 
@@ -8,11 +8,11 @@ function CryptoCurrencyPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const newSocket = new WebSocket("wss://stream.binance.com:9443/stream");
 
     newSocket.onopen = () => {
-      console.log("WebSocket connection established.");
+      // console.log("WebSocket connection established.");
       setLoading(false);
       // Subscribe to the stream when the connection is opened
       const subscribeRequest = {
@@ -62,9 +62,9 @@ function CryptoCurrencyPage() {
   return (
     <>
       {cryptoData?.data &&
-        cryptoData?.data
-          // .slice(0, 20)
-          .map(({ c, s, P }) => <Card key={s} s={s} c={c} P={P} />)}
+        cryptoData?.data.map(({ c, s, P }, index) => (
+          <Card key={`${s}-${index}`} symbol={s} price={c} priceChange={parseInt(P)} />
+        ))}
     </>
   );
 }

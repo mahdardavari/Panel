@@ -2,28 +2,29 @@ import { FC, memo } from "react";
 import { getPriceChangeColor } from "src/utility/getPriceChangeColor";
 
 interface CardProps {
-  c: string; // Last price
-  s: string; // Symbol
-  P: string; // Price change percent
+  symbol: string; // Symbol
+  price: string; // Last price
+  priceChange: number; // Price change percent
 }
 
-const Card: FC<CardProps> = ({ s, c, P }) => {
+const Card: FC<CardProps> = ({ symbol, price, priceChange }) => {
   return (
     <div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 w-full max-w-6xl">
         <div className="flex items-center p-2 bg-gray-900 hover:bg-gray-800 text-white">
           <div className="flex-grow flex flex-col ml-4">
             <div className="flex items-center justify-between">
-              <span>{s}</span>
-              <span className="text-sm font-bold">{c}</span>
+              <span>{symbol}</span>
+              <span className="text-sm font-bold">{price}</span>
             </div>
 
             <span
               className={`${getPriceChangeColor(
-                parseInt(P)
+                priceChange
               )} text-sm font-semibold ml-2`}
             >
-              {P}
+              {priceChange}
+              <span>%</span>
             </span>
           </div>
         </div>
