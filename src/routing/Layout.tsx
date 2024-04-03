@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Footer from "src/components/share/Footer";
+
 
 const Layout = () => {
   return (
@@ -11,7 +11,7 @@ const Layout = () => {
       </main>
 
       <footer>
-        <Footer />
+        {/* <Footer /> */}
       </footer>
     </>
   );

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: IranSans;
-  src: url("assets/fonts/woff/IRANSansWeb(FaNum)_Light.woff") format("woff");
+  /* font-family: IranSans;
+  src: url("assets/fonts/woff/IRANSansWeb(FaNum)_Light.woff") format("woff"); */
   font-weight: 300;
   font-display: swap;
 }
