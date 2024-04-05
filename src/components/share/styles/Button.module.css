@@ -1,4 +1,4 @@
-.custom-btn {
+.base {
   width: 130px;
   height: 40px;
   color: #fff;
@@ -23,11 +23,7 @@
   padding: 0;
   border: none;
   background: rgb(0, 13, 255);
-  background: linear-gradient(
-    0deg,
-    rgb(0, 123, 255) 0%,
-    rgb(2, 31, 251) 100%
-  );
+  background: linear-gradient(0deg, rgb(0, 123, 255) 0%, rgb(2, 31, 251) 100%);
 }
 .primary:hover {
   color: #4e09f0;
@@ -57,4 +53,9 @@
 .primary:hover:after {
   width: 100%;
   transition: 800ms ease all;
+}
+
+.isDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -4,8 +4,9 @@ import HomePage from "./routing/HomePage";
 import Layout from "./routing/Layout";
 import LoginPage from "./routing/LoginPage";
 import PrivatePage from "./routing/PrivatePage";
-import TodosPAge from "./routing/TodosPAge";
+
 import CryptoCurrencyPage from "./routing/CryptoCurrencyPage";
+import TodosPage from "./routing/TodosPage";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "login", element: <LoginPage /> },
       { path: "private", element: <PrivatePage /> },
-      { path: "todos", element: <TodosPAge /> },
+      { path: "todos", element: <TodosPage /> },
       {path:'/crypto-currency', element: <CryptoCurrencyPage />}
 
     ],

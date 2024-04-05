@@ -25,7 +25,7 @@ const PostList = () => {
         <option value="2">User 2</option>
       </select> */}
 
-      {data?.map(({ title },index) => {
+      {data?.map(({ title }, index) => {
         return (
           <div className="text-gray-950 p-2 border rounded-md" key={index}>
             <span>{title}</span>
@@ -33,10 +33,17 @@ const PostList = () => {
         );
       })}
       <div className="flex justify-center gap-4 my-4">
-        <Button  disabled={page === 1} onClick={() => setPage(page - 1)}>
+        <Button
+          isDisabled={page == 1}
+          primary={true}
+          disabled={page === 1}
+          onClick={() => setPage(page - 1)}
+        >
           Previous
         </Button>
-        <Button  onClick={() => setPage(page + 1)}>Next</Button>
+        <Button primary={true} onClick={() => setPage(page + 1)}>
+          Next
+        </Button>
       </div>
     </>
   );

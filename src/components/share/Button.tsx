@@ -1,15 +1,35 @@
 import { FC } from "react";
-import "./styles/Button.css";
+import styles from "./styles/Button.module.css";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  cls?: string | null;
+  primary?: boolean;
+  outline?: boolean;
+  isDisabled?: boolean;
 }
 
-const Button: FC<Props> = ({ children, cls, ...attributes }) => {
+function classNames(...classes: (string | boolean | undefined)[]) {
+  return classes.filter(Boolean).join(' ');
+}
+
+
+const Button: FC<Props> = ({
+  children,
+  primary,
+  outline,
+  isDisabled,
+  ...attributes
+}) => {
+  const className = classNames(
+    styles.base,
+    primary && styles.primary,
+    outline && styles.outline,
+    isDisabled && styles.isDisabled
+  );
+
   return (
     <>
-      <button className={`custom-btn primary ${cls}`} {...attributes}>
+      <button className={className} {...attributes}>
         {children}
       </button>
     </>

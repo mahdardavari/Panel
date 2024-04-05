@@ -23,7 +23,7 @@ const PostInfinite = () => {
       })}
 
       <div className="flex justify-center gap-4 my-4 w-24">
-        <Button disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>
+        <Button primary disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>
           Load More
         </Button>
       </div>

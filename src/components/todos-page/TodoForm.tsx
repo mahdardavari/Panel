@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import useAddTodo from "src/hooks/useAddTodo";
-import Button from "./Button";
+import Button from "../share/Button";
 
 function TodoForm() {
   const ref = useRef<HTMLInputElement>(null);
@@ -33,8 +33,8 @@ function TodoForm() {
             className="border border-gray-300 rounded px-2 py-1 flex-1 "
             placeholder="Enter Todo"
           />
-          <div className="w-16 my-2">
-            <Button>ADD</Button>
+          <div className="w-20 my-2">
+            <Button primary>ADD</Button>
           </div>
         </div>
       </form>

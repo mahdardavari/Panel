@@ -1,14 +1,13 @@
-import TodoForm from "src/components/share/TodoForm";
-import TodoList from "src/components/share/TodoList";
+import TodoForm from "src/components/todos-page/TodoForm";
+import TodoList from "src/components/todos-page/TodoList";
 
-const TodosPAge = () => {
+const TodosPage = () => {
   return (
     <>
       <TodoForm />
       <TodoList />
-      
     </>
   );
 };
 
-export default TodosPAge;
+export default TodosPage;
