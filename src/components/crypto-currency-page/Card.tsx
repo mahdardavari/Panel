@@ -9,7 +9,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ symbol, price, priceChange }) => {
   return (
-    <div>
+    <>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 w-full max-w-6xl">
         <div className="flex items-center p-2 bg-gray-900 hover:bg-gray-800 text-white">
           <div className="flex-grow flex flex-col ml-4">
@@ -29,7 +29,7 @@ const Card: FC<CardProps> = ({ symbol, price, priceChange }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "src/components/crypto-currency-page/Card";
 import { CryptoResponse } from "src/components/crypto-currency-page/types";
 
@@ -8,7 +8,7 @@ function CryptoCurrencyPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const newSocket = new WebSocket("wss://stream.binance.com:9443/stream");
 
     newSocket.onopen = () => {
@@ -18,6 +18,7 @@ function CryptoCurrencyPage() {
       const subscribeRequest = {
         method: "SUBSCRIBE",
         params: ["!ticker@arr"],
+        // params: ["btcusdt@ticker", "ethbtc"],
       };
       newSocket.send(JSON.stringify(subscribeRequest));
     };
@@ -27,9 +28,9 @@ function CryptoCurrencyPage() {
       const message = JSON.parse(event.data);
       // Received message:
       // Process the message here, update state, etc.
-
-      // setCryptoData(message);
-      setCryptoData(...([message] as const));
+      setCryptoData((prevData) => {
+        return { ...prevData, ...message };
+      });
     };
 
     newSocket.onclose = () => {
@@ -63,7 +64,12 @@ function CryptoCurrencyPage() {
     <>
       {cryptoData?.data &&
         cryptoData?.data.map(({ c, s, P }, index) => (
-          <Card key={`${s}-${index}`} symbol={s} price={c} priceChange={parseInt(P)} />
+          <Card
+            key={`${s}-${index}`}
+            symbol={s}
+            price={c}
+            priceChange={parseInt(P)}
+          />
         ))}
     </>
   );
