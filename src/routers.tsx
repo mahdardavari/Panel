@@ -6,6 +6,7 @@ import LoginPage from "./routing/LoginPage";
 import PrivatePage from "./routing/PrivatePage";
 
 import CryptoCurrencyPage from "./routing/CryptoCurrencyPage";
+import { TestPage } from "./routing/TestPage";
 import TodosPage from "./routing/TodosPage";
 
 const router = createBrowserRouter([
@@ -18,8 +19,8 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage /> },
       { path: "private", element: <PrivatePage /> },
       { path: "todos", element: <TodosPage /> },
-      {path:'/crypto-currency', element: <CryptoCurrencyPage />}
-
+      {path:'/crypto-currency', element: <CryptoCurrencyPage />},
+      {path:'/test' ,element:<TestPage/>}
     ],
   },
 ]);
